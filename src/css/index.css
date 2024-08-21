@@ -1,0 +1,458 @@
+@font-face {
+  font-family: 'RedHatText';
+  src: url('./assets/fonts/static/RedHatText-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'RedHatText';
+  src: url('./assets/fonts/static/RedHatText-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'RedHatText';
+  src: url('./assets/fonts/static/RedHatText-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'RedHatText';
+  src: url('./assets/fonts/static/RedHatText-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'RedHatText';
+  src: url('./assets/fonts/static/RedHatText-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: bolder;
+}
+
+:root {
+  --mobileWidth: 425px;
+  --tabletWidth: 768px;
+  --tableDesktop: 1100px;
+  /* Colores */
+  --color-Red: hsl(14, 86%, 42%);
+  --color-Green: hsl(159, 69%, 38%);
+  --color-Rose50: hsl(20, 50%, 98%);
+  --color-Rose100: hsl(13, 31%, 94%);
+  --color-Rose300: hsl(14, 25%, 72%);
+  --color-Rose400: hsl(7, 20%, 60%);
+  --color-Rose500: hsl(12, 20%, 44%);
+  --color-Rose900: hsl(14, 65%, 9%);
+
+}
+
+*::before,
+*::after,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'RedHatText1', sans-serif;
+  font-size: 16px;
+  background: var(--color-Rose50);
+}
+
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*==================================================
+Css para Desserts
+==================================================*/
+.section__desserts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  width: min(92%, 1200px);
+  margin: 25px auto;
+}
+
+.section__desserts h2 {
+  font-size: 1.8rem;
+  color: var(--color-Rose900);
+  font-weight: bold;
+  padding-bottom: 18px;
+}
+
+.desserts__items {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (width >=768px) {
+  .section__desserts {
+    grid-template-columns: 60% 1fr;
+  }
+
+  .desserts__items {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (width >=1024px) {
+  .section__desserts {
+    grid-template-columns: 66% 1fr;
+  }
+
+  .desserts__items {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+/*==================================================
+Css para las cards de las recetas.
+==================================================*/
+
+.dessert__card {
+  width: 100%;
+}
+
+.dessert__picture {
+  position: relative;
+}
+
+.dessert__picture picture {
+  width: inherit;
+}
+
+.dessert__picture picture img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.button {
+  display: block;
+  width: 160px;
+  height: 40px;
+  padding: 10px 0px;
+  border-radius: 22px;
+  border: none;
+  position: absolute;
+  /* top: 5px; */
+  bottom: -15px;
+  left: calc(calc(100% - 160px) / 2);
+}
+
+.dessert__button {
+  background: white;
+  outline: var(--color-Rose300) 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.dessert__button--add {
+  background: var(--color-Red);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.dessert__button--add div {
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dessert__data {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0;
+  gap: 15px;
+}
+
+.dessert__category {
+  color: var(--color-Rose400);
+}
+
+.dessert__name {
+  color: black;
+  font-weight: bold;
+}
+
+.dessert__price {
+  color: var(--color-Red);
+  font-weight: bold;
+}
+
+/*==================================================
+Css para el Carrito de compras
+==================================================*/
+
+.container__dessertscart {
+  display: flex;
+  flex-direction: column;
+}
+
+.dessertscart {
+  background: white;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 15px 25px;
+}
+
+.dessertscart__title {
+  color: var(--color-Red) !important;
+}
+
+.dessertscart__items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dessertcart__item {
+  display: flex;
+  justify-content: space-between;
+  /* width: 100%; */
+  padding: 12px 0;
+  border-bottom: 2px solid var(--color-Rose100);
+}
+
+.item__data {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.item__data h4 {
+  color: var(--color-Rose900);
+}
+
+.item__data div {
+  display: grid;
+  grid-template-columns: repeat(3, 15%);
+}
+
+.item__data div p:nth-child(1) {
+  color: var(--color-Red);
+  font-weight: bold;
+}
+
+.item__data div p:nth-child(2) {
+  color: var(--color-Rose300);
+}
+
+.item__data div p:nth-child(3) {
+  color: var(--color-Rose500);
+  font-weight: bold;
+}
+
+.item__remove {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--color-Rose500);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.dessertscart__total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dessertscart__total p:last-child {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: var(--color-Rose900);
+}
+
+.dessertscart__carbon {
+  width: 80%;
+  margin: 0 auto;
+  padding: 15px 25px;
+  display: flex;
+  background: var(--color-Rose100);
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.dessertscart__buttomconfirm,
+.dessertscartmodal__button {
+  width: 80%;
+  margin: 0 auto;
+  border: none;
+  padding: 15px;
+  background: var(--color-Red);
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.dessertscart__emptycard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.emptycard__paragraph {
+  color: var(--color-Rose500);
+}
+
+/* =========================================
+CSS para la ventana Modal
+========================================= */
+
+.dessertscartmodal__container::backdrop {
+  background: var(--color-Rose50);
+  opacity: 0.7;
+}
+
+.dessertscartmodal__container {
+  margin: auto auto;
+  width: min(95%, 500px);
+  border: none;
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+dialog[open] {
+  scale: 1;
+  transition: scale .25s ease-in-out;
+
+  @starting-style {
+    scale: 0.5;
+  }
+}
+
+dialog {
+  transition: scale .3s ease,
+    display .3s ease allow-discrete;
+  scale: 0;
+}
+
+.dessertscartmodal__main {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dessertscartmodal__title {
+  margin: 0;
+  padding: 0 !important;
+}
+
+.dessertscartmodal__paragraph {
+  color: var(--color-Rose300);
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.dessertscartmodal__items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: var(--color-Rose50);
+}
+
+.dessertscartmodal__ordertotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 70px;
+  background: var(--color-Rose50);
+  padding: 0px 20px;
+  align-items: center;
+}
+
+.dessertscartmodal__ordertotal p:first-child {
+  color: var(--color-Rose500);
+  font-weight: bold;
+}
+
+.dessertscartmodal__ordertotal p:last-child {
+  color: var(--color-Rose900);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.dessertscartmodal__button {
+  width: 100%;
+}
+
+/* ===========================================================
+Css para las cards de los items de la orden
+=========================================================== */
+.dessertcartorder__item {
+  display: flex;
+  min-height: 70px;
+  gap: 20px;
+  padding: 15px 20px;
+  border-bottom: 2px solid var(--color-Rose100);
+}
+
+.itemorder__img {}
+
+.itemorder__img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.itemorder__data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.itemorder__data div {
+  display: grid;
+  grid-template-columns: 45px 60px;
+}
+
+.itemorder__totalprice {
+  margin-left: auto;
+}
+
+
+
+
+@media (width >=768px) {
+  .dessertscart {
+    top: 25px;
+    /* position: fixed; */
+    /* width: 350px; */
+  }
+
+  .dessertscart__title {}
+}
