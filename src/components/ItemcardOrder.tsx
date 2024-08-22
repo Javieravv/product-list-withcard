@@ -11,15 +11,13 @@ const ItemcardOrder: FC<IDessertCart> = (dessert) => {
                 <h4>{dessert.name}</h4>
                 <div>
                     <p>{dessert.quantity}x</p>
-                    <p>@ ${dessert.price}</p>
+                    <p>@ ${dessert.price.toFixed(2)}</p>
                 </div>
             </article>
             <div className="itemorder__totalprice">
-                <p>${dessert.totalprice}</p>
+                <p>${dessert.totalprice.toFixed(2)}</p>
             </div>
         </div>
     )
 }
-
-
 export default ItemcardOrder

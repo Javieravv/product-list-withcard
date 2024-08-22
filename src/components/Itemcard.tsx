@@ -1,21 +1,26 @@
 import { FC } from "react"
 import { IDessertCart } from "../interfaces/IData"
 import { IconRemoveItem } from "./Icons"
+import { useProductListStore } from "../store/productlist.store"
 
-export const Itemcard:FC<IDessertCart> = ( dessert) => {
-  return (
-    <div className="dessertcart__item">
-        <div className="item__data">
+export const Itemcard: FC<IDessertCart> = (dessert) => {
+   const { removeDessert } = useProductListStore()
+   return (
+      <div className="dessertcart__item">
+         <div className="item__data">
             <h4>{dessert.name}</h4>
             <div>
-                <p>{dessert.quantity}x</p>
-                <p>@ ${dessert.price}</p>
-                <p>${dessert.totalprice}</p>
+               <p>{dessert.quantity}x</p>
+               <p>@ ${dessert.price.toFixed(2)}</p>
+               <p>${dessert.totalprice.toFixed(2)}</p>
             </div>
-        </div>
-        <div className="item__remove">
+         </div>
+         <div
+            className="item__remove"
+            onClick={() => removeDessert(dessert.id)}
+         >
             <IconRemoveItem />
-        </div>
-    </div>
-  )
+         </div>
+      </div>
+   )
 }

@@ -30,7 +30,7 @@ const IconAddToCart: FC<PropsIcons> = (props) => {
 }
 
 
-const IconCarbonNeutral: FC<Props> = (props) => {
+const IconCarbonNeutral: FC<PropsIcons> = (props) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -10,7 +10,7 @@ export const Desserts = () => {
                 <h2>Desserts</h2>
                 <div className="desserts__items">
                     {
-                        dataDesserts.map(d => <Carddesert dessert={d} key={d.name}/>)
+                        dataDesserts.map(d => <Carddesert dessert={d} key={d.id}/>)
                     }
                 </div>
             </article>
