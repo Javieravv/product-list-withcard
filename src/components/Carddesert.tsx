@@ -9,15 +9,18 @@ interface Props {
 
 export const Carddesert: FC<Props> = ({ dessert }) => {
     // TODO: usar un useEffect para recuperar del Store las unidades que tiene
-    const { addDessert, removeDessert, totalCart } = useProductListStore()
-    const [quantityDessert, setquantityDessert] = useState(0)
+    const { addDessert, removeDessert, totalCart, getQuantityDessert } = useProductListStore()
+    const [quantityDessert, setquantityDessert] = useState<number>(getQuantityDessert(dessert.id || '') || 0)
 
     useEffect(() => {
-      if ( totalCart === 0) {
-        setquantityDessert (0)
-      }
-    }, [totalCart])
-    
+        if (totalCart === 0) {
+            setquantityDessert(0)
+        } else if (( totalCart > 0) && (getQuantityDessert(dessert.id || '') === 0)) {
+            setquantityDessert(0)
+        }
+
+    }, [totalCart, dessert.id, getQuantityDessert])
+
     return (
         <div className="dessert__card">
             <div
@@ -29,7 +32,7 @@ export const Carddesert: FC<Props> = ({ dessert }) => {
                     <img
                         src={dessert.image.desktop}
                         alt={dessert.name}
-                        className={`${ quantityDessert > 0 ? 'card-selected' : '' }`}
+                        className={`${quantityDessert > 0 ? 'card-selected' : ''}`}
                     />
                 </picture>
                 {(quantityDessert > 0)
@@ -40,8 +43,8 @@ export const Carddesert: FC<Props> = ({ dessert }) => {
                                 onClick={() => {
                                     dessert.quantity = -1;
                                     setquantityDessert(quantityDessert - 1)
-                                    if ((quantityDessert - 1) < 1)  { 
-                                        removeDessert(dessert.id || '') 
+                                    if ((quantityDessert - 1) < 1) {
+                                        removeDessert(dessert.id || '')
                                     } else {
                                         addDessert(dessert);
                                     }
@@ -61,18 +64,20 @@ export const Carddesert: FC<Props> = ({ dessert }) => {
                             </div>
                         </article>
                     )
-                    : (<article
-                        className="button dessert__button"
-                        onClick={() => {
-                            dessert.quantity = 1;
-                            setquantityDessert(() => quantityDessert + 1)
-                            addDessert(dessert);
-                        }}
-                    >
-                        {/* Botón items vacíos */}
-                        <IconAddToCart />
-                        <p>Add to Cart</p>
-                    </article>)}
+                    : (
+                        <article
+                            className="button dessert__button"
+                            onClick={() => {
+                                dessert.quantity = 1;
+                                setquantityDessert(() => quantityDessert + 1)
+                                addDessert(dessert);
+                            }}
+                        >
+                            {/* Botón items vacíos */}
+                            <IconAddToCart />
+                            <p>Add to Cart</p>
+                        </article>)
+                }
             </div>
             <div className="dessert__data">
                 <p className="dessert__category">{dessert.category}</p>

@@ -1,9 +1,9 @@
 import { FC } from "react"
-import { IDessertCart } from "../interfaces/IData"
+import { IDessert } from "../interfaces/IData"
 import { IconRemoveItem } from "./Icons"
 import { useProductListStore } from "../store/productlist.store"
 
-export const Itemcard: FC<IDessertCart> = (dessert) => {
+export const Itemcard: FC<IDessert> = (dessert) => {
    const { removeDessert } = useProductListStore()
    return (
       <div className="dessertcart__item">
@@ -12,7 +12,7 @@ export const Itemcard: FC<IDessertCart> = (dessert) => {
             <div>
                <p>{dessert.quantity}x</p>
                <p>@ ${dessert.price.toFixed(2)}</p>
-               <p>${dessert.totalprice.toFixed(2)}</p>
+               <p>${dessert.totalprice?.toFixed(2)}</p>
             </div>
          </div>
          <div

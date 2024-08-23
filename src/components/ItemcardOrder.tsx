@@ -1,7 +1,7 @@
 import { FC } from "react"
-import { IDessertCart } from "../interfaces/IData"
+import { IDessert } from "../interfaces/IData"
 
-const ItemcardOrder: FC<IDessertCart> = (dessert) => {
+const ItemcardOrder: FC<IDessert> = (dessert) => {
     return (
         <div className="dessertcartorder__item">
             <article className="itemorder__img">
@@ -15,7 +15,7 @@ const ItemcardOrder: FC<IDessertCart> = (dessert) => {
                 </div>
             </article>
             <div className="itemorder__totalprice">
-                <p>${dessert.totalprice.toFixed(2)}</p>
+                <p>${dessert.totalprice?.toFixed(2)}</p>
             </div>
         </div>
     )

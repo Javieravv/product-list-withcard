@@ -1,10 +1,11 @@
 export interface IDessert {
+    id: string;
     image: IImage;
     name: string;
-    category: string;
     price: number;
-    id?: string;
     quantity?: number;
+    category: string;
+    totalprice?: number;
 }
 
 export interface IImage {
@@ -14,15 +15,15 @@ export interface IImage {
     desktop: string;
 }
 
-export interface IDessertCart {
-    id: string;
-    image: IImageCart;
-    name: string;
-    price: number;
-    quantity: number;
-    totalprice: number;
-}
+// export interface IDessertCart {
+//     id: string;
+//     image: IImageCart;
+//     name: string;
+//     price: number;
+//     quantity: number;
+//     totalprice?: number;
+// }
 
-export interface IImageCart {
-    thumbnail: string;
-}
+// export interface IImageCart {
+//     thumbnail: string;
+// }

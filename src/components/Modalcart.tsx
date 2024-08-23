@@ -5,40 +5,6 @@ import { IconOrderConfirmed } from "./Icons"
 import ItemcardOrder from "./ItemcardOrder"
 import { useProductListStore } from "../store/productlist.store"
 
-// const dataTempOrder: IDessertCart[] = [
-//     {
-//         "id": "1",
-//         "image": {
-//             "thumbnail": "/assets/images/image-waffle-thumbnail.jpg"
-//         },
-//         "name": "Waffle with Berries",
-//         "price": 6.50,
-//         "quantity": 1,
-//         "totalprice": 6.50
-//     },
-//     {
-//         "id": "2",
-//         "image": {
-//             "thumbnail": "/assets/images/image-creme-brulee-thumbnail.jpg"
-//         },
-//         "name": "Vanilla Bean Crème Brûlée",
-//         "price": 7.00,
-//         "quantity": 3,
-//         "totalprice": 21.00
-//     },
-//     {
-//         "id": "3",
-//         "image": {
-//             "thumbnail": "/assets/images/image-macaron-thumbnail.jpg"
-//         },
-//         "name": "Macaron Mix of Five",
-//         "price": 8.00,
-//         "quantity": 5,
-//         "totalprice": 40.00
-//     }
-// ]
-
-
 const Modalcart = () => {
     const { listProducts: dataTempOrder, totalCart, resetStore} = useProductListStore()
     const modalCart = useRef<HTMLDialogElement>(null)
